@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('test'),
         ]);
         $user->assignRole('writer');
+        $user->portfolios()->attach('1');
 
         $user = Factory(App\User::class)->create([
             'name' => 'Example Admin User',
@@ -25,6 +26,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('admin'),
         ]);
         $user->assignRole('admin');
+        $user->portfolios()->attach('2');
 
         $user = Factory(App\User::class)->create([
             'name' => 'Example Super-Admin User',
@@ -32,5 +34,6 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('superadmin'),
         ]);
         $user->assignRole('super-admin');
+        $user->portfolios()->attach(['1','2']);
     }
 }
