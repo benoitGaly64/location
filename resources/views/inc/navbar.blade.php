@@ -1,12 +1,12 @@
+<!-- Sidebar -->
 
-    <!-- Sidebar -->
+<div class="bg-light border-right sticky-top" id="sidebar-wrapper">
+    <div class="sidebar-heading sticky-top">Mon agence immo</div>
+    <div class="list-group list-group-flush sticky-top">
 
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Mon agence immo</div>
-      <div class="list-group list-group-flush">
+        <a href="/home" class="list-group-item list-group-item-action bg-light sticky-top">Dashboard</a>
+        <a href="/possessions" class="list-group-item list-group-item-action bg-light sticky-top">Mes Biens</a>
 
-                  <a href="/home" class="list-group-item list-group-item-action bg-light">Dashboard</a>
- 
-      </div>
     </div>
-    <!-- /sidebar-wrapper -->
+</div>
+<!-- /sidebar-wrapper -->

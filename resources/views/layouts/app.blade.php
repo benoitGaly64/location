@@ -11,7 +11,8 @@
 
     <!-- Scripts -->
     
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/nav.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -26,16 +27,19 @@
 <body>
     <!-- #wrapper -->
     <div class="d-flex" id="wrapper">
-
+        <div class="sticky-top">
        @include('inc.navbar') 
-        
+        </div>
         <!-- #Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" style="height: 100%;">
         @include('inc.subnavbar')
         @yield('content')
     </div>
     <!-- /#Page Content -->
     <!-- /#wrapper -->
     
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
+
 </html>

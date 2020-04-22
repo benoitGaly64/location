@@ -21,3 +21,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'possessions'], function() {
+    
+    Route::get('/', 'PossessionsController@index')->name('possessionsIndex');
+    Route::get('/{possession}/show', 'PossessionsController@show')->name('possessionsShow');
+
+    Route::get('/create', 'PossessionsController@create')->name('possessionsCreate');
+    Route::post('/store', 'PossessionsController@store')->name('possessionsStore');
+
+    Route::get('/{possession}/edit', 'PossessionsController@edit')->name('possessionsEdit');
+    Route::match(['put', 'patch'], '/{possession}', 'PossessionsController@update')->name('possessionsUpdate');
+
+    Route::get('/createportfolio', 'PortfoliosController@create')->name('portfolioCreate');
+    Route::post('/storeportfolio', 'PortfoliosController@store')->name('portfolioStore');
+
+    Route::delete('/{id}', 'PossessionsController@destroy');
+
+
+});
+
