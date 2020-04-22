@@ -13,12 +13,12 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role1 = Role::create(['name' => 'writer']);
-        $role1->givePermissionTo('edit articles');
-        $role1->givePermissionTo('delete articles');
-
+        $role1->givePermissionTo('list possessions','show possessions','create possessions','edit possessions','delete possessions');
+        $role1->givePermissionTo('list portfolios','show portfolios','create portfolios','edit portfolios','delete portfolios');
+        
         $role2 = Role::create(['name' => 'admin']);
-        $role2->givePermissionTo('publish articles');
-        $role2->givePermissionTo('unpublish articles');
+        $role2->givePermissionTo('list possessions','show possessions','create possessions','edit possessions','delete possessions');
+        $role2->givePermissionTo('list portfolios','show portfolios','create portfolios','edit portfolios','delete portfolios');
 
         $role3 = Role::create(['name' => 'super-admin']);
         // gets all permissions via Gate::before rule; see AuthServiceProvider

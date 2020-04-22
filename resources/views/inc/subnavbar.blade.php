@@ -1,7 +1,7 @@
 
   <div class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <button class="btn btn-primary" id="menu-toggle"><i id="menu-toggle" class="fas fa-bars"></i></button>
+    <button class="btn btn-link" id="menu-toggle"><i id="menu-toggle" class="fas fa-bars"></i></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">

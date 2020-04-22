@@ -11,8 +11,8 @@
             <p>town : {!!$possession->town!!}</p>
             <p>id_owner : {!!$possession->id_owner!!}</p>
             <p>type : {!!$possession->type!!}</p>
-        </div>     
-        <a href="/possessions/{{$possession->id}}/edit" class="btn btn-lg btn-primary" style="margin-bottom:15px;"> Editer l'article</a>
-
-        
+        </div>
+        @can('edit possessions')
+            <a href="/possessions/{{$possession->id}}/edit" class="btn btn-lg btn-primary" style="margin-bottom:15px;"> Editer l'article</a>
+        @endcan
 @endsection
