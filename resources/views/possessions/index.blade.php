@@ -8,14 +8,16 @@
 @endcan
 @foreach(Auth::user()->portfolios as $portfolio)
     <div class="container p-2">
-        @can('create possessions')
+        @can('list portfolios')
         <a class="link-unstyled" data-toggle="collapse" href="#collapse{{ $portfolio->id }}" role="button"
             aria-expanded="false" aria-controls="collapse{{ $portfolio->id }}">
             <h1>{{ $portfolio->name }}</h1>
         </a>
         @endcan
         <div class="collapse" id="collapse{{ $portfolio->id }}">
+            @can('create possessions')
             <a href="/possessions/create?pf={{ $portfolio->id }}" class="btn btn-lg btn-primary" style="margin-bottom:15px;">Ajouter un bien au portefeuille</a>
+            @endcan
             @if(count($portfolio->possessions) >= 1)
                 <table class="table">
                     <thead>

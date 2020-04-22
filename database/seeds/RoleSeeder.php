@@ -13,8 +13,8 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role1 = Role::create(['name' => 'writer']);
-        $role1->givePermissionTo('list possessions','show possessions','create possessions','edit possessions','delete possessions');
-        $role1->givePermissionTo('list portfolios','show portfolios','create portfolios','edit portfolios','delete portfolios');
+        $role1->givePermissionTo('list possessions','show possessions');
+        $role1->givePermissionTo('list portfolios','show portfolios');
         
         $role2 = Role::create(['name' => 'admin']);
         $role2->givePermissionTo('list possessions','show possessions','create possessions','edit possessions','delete possessions');
