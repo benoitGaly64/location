@@ -10,7 +10,8 @@ class Possession extends Model
 
 	public function portfolio() 
 	{
-		return $this->belongsTo('App\Portfolio');
+		return $this->belongsTo(Portfolio::class);
 	}
+	
 
 }

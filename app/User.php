@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use HasRoles;
@@ -41,6 +41,7 @@ class User extends Authenticatable
 
     public function portfolios()
 	{
-		return $this->belongsToMany('App\Portfolio');
-	} 
+		return $this->belongsToMany(Portfolio::class);
+    } 
+    
 }
