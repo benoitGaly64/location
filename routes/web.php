@@ -22,6 +22,21 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('image_crop','ImageCropController@index');
+
+Route::post('image_crop/upload', 'ImageCropController@upload')->name('image_crop.upload');
+
+
+
+Route::group(['prefix' => 'profile'], function() {
+    Route::get('/', 'UsersProfileController@edit')
+        ->name('ProfileShow')
+        ->middleware('can:show profile');
+    Route::match(['put', 'patch'], '/', 'UsersProfileController@update')
+        ->name('UsersProfileUpdate');
+
+
+});
 
 Route::group(['prefix' => 'possessions'], function() {
     

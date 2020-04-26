@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // create demo users
-        $user = Factory(App\User::class)->create([
+        $user = Factory(User::class)->create([
             'name' => 'Example User',
             'email' => 'test@example.com',
             'password' => bcrypt('test'),
@@ -20,7 +21,7 @@ class UsersSeeder extends Seeder
         $user->assignRole('writer');
         $user->portfolios()->attach('1');
 
-        $user = Factory(App\User::class)->create([
+        $user = Factory(User::class)->create([
             'name' => 'Example Admin User',
             'email' => 'admin@example.com',
             'password' => bcrypt('admin'),
@@ -28,7 +29,7 @@ class UsersSeeder extends Seeder
         $user->assignRole('admin');
         $user->portfolios()->attach('2');
 
-        $user = Factory(App\User::class)->create([
+        $user = Factory(User::class)->create([
             'name' => 'Example Super-Admin User',
             'email' => 'superadmin@example.com',
             'password' => bcrypt('superadmin'),

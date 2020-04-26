@@ -29,7 +29,8 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'edit portfolios']);
         Permission::create(['name' => 'delete portfolios']);
         
-        
+        Permission::create(['name' => 'show profile']);
+        Permission::create(['name' => 'edit profile']);
         
     }
 }

@@ -22,11 +22,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }}</span>
+                            <img src="{{ Auth::User()->profile->pic_path }}" class="rounded-circle" width="40" height="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/profile">Mon Profil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -35,6 +34,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                               {{ csrf_field() }}
                             </form>
+                        </div>
                     </li>
                 @endif
             @endif
