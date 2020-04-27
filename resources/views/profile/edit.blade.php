@@ -47,7 +47,7 @@
 
                 <br />
 
-                <script type="text/javascript">
+                <script>
                     $(document).ready(function () {
 
                         $image_crop = $('#image-preview').croppie({

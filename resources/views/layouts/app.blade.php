@@ -10,13 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-    
-    
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script language="JavaScript" type="text/javascript" src="{{ asset('js/croppie.js') }}" defer></script>
+    <script language="JavaScript" type="text/javascript" src="{{ asset('js/nav.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,12 +33,8 @@
     </div>
     <!-- /#Page Content -->
     <!-- /#wrapper -->
-    
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/nav.js') }}" defer></script>
-    <script src="{{ asset('js/croppie.js') }}" defer></script>
 
-    
+ 
 </body>
 
 
