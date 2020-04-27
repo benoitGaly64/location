@@ -17,6 +17,6 @@ $factory->define(UsersProfile::class, function (Faker $faker) {
         'gender'        => $faker->title,
         'phone'         => $faker->phoneNumber,
         'date_of_birth' => $faker->date,
-        'pic_path'      =>$faker->url,
+        'pic_path'      => '/storage/avatar/default.jpg',
     ];
 });
