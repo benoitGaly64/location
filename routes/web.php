@@ -38,8 +38,7 @@ Route::group(['prefix' => 'profile'], function() {
 
 });
 
-Route::group(['prefix' => 'possessions'], function() {
-    
+Route::group(['prefix' => 'possessions'], function() {  
     Route::get('/', 'PossessionsController@index')
         ->name('possessionsIndex')
         ->middleware('can:list possessions');
@@ -60,6 +59,9 @@ Route::group(['prefix' => 'possessions'], function() {
     Route::match(['put', 'patch'], '/{possession}', 'PossessionsController@update')
         ->name('possessionsUpdate')
         ->middleware('can:edit possessions');
+        
+    Route::post('/update-items', array('as'=> 'update.items', 'uses' => 'PossessionsController@updateItems'));
+    Route::post('/update-items', array('as'=> 'updateOwnerPossession', 'uses' => 'PossessionsController@updateOwnerPossession'));
 
     Route::get('/createportfolio', 'PortfoliosController@create')
         ->name('portfolioCreate')
@@ -70,7 +72,38 @@ Route::group(['prefix' => 'possessions'], function() {
 
     Route::delete('/{id}', 'PossessionsController@destroy')
         ->middleware('can:delete possessions');
-
-
 });
 
+
+Route::group(['prefix' => 'owners'], function() {  
+    Route::get('/', 'OwnerController@index')
+        ->name('ownersIndex')
+        ->middleware('can:list owner');
+    Route::get('/{owner}/show', 'OwnerController@show')
+        ->name('ownerShow')
+        ->middleware('can:show owner');
+
+    Route::get('/create', 'OwnerController@create')
+        ->name('ownerCreate')
+        ->middleware('can:create owner');
+    Route::post('/store', 'OwnerController@store')
+        ->name('ownerStore')
+        ->middleware('can:create owner');
+
+    Route::get('/{owner}/edit', 'OwnerController@edit')
+        ->name('ownerEdit')
+        ->middleware('can:edit owner');
+    Route::match(['put', 'patch'], '/{owner}', 'OwnerController@update')
+        ->name('ownerUpdate')
+        ->middleware('can:edit owner');
+
+    Route::get('/create', 'OwnerController@create')
+        ->name('ownerCreate')
+        ->middleware('can:create owner');
+    Route::post('/storeportfolio', 'OwnerController@store')
+        ->name('ownerStore')
+        ->middleware('can:create owner');
+
+    Route::delete('/{id}', 'OwnerController@destroy')
+        ->middleware('can:delete owner');
+});

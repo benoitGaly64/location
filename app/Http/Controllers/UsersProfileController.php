@@ -52,6 +52,7 @@ class UsersProfileController extends Controller
         return redirect('/profile');
     }
 
+
     public function updatePicture(Request $request)
     {
         

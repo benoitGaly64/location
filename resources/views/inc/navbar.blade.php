@@ -7,6 +7,9 @@
         @can('list possessions')
             <a href="/possessions" class="list-group-item list-group-item-action bg-light sticky-top">Mes Biens</a>
         @endcan
+        @can('list owner')
+            <a href="/owners" class="list-group-item list-group-item-action bg-light sticky-top">Propriétaires</a>
+        @endcan
     </div>
 </div>
 <!-- /sidebar-wrapper -->

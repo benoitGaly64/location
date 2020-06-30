@@ -12,6 +12,9 @@ class Possession extends Model
 	{
 		return $this->belongsTo(Portfolio::class);
 	}
-	
+	public function owners() 
+	{
+		return $this->belongsToMany(owner::class);
+	}
 
 }

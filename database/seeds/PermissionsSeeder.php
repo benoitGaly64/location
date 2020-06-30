@@ -31,6 +31,12 @@ class PermissionsSeeder extends Seeder
         
         Permission::create(['name' => 'show profile']);
         Permission::create(['name' => 'edit profile']);
+
+        Permission::create(['name' => 'list owner']);
+        Permission::create(['name' => 'show owner']);
+        Permission::create(['name' => 'create owner']);
+        Permission::create(['name' => 'edit owner']);
+        Permission::create(['name' => 'delete owner']);
         
     }
 }

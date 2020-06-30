@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\owner;
 use App\Possession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,7 +69,12 @@ class PossessionsController extends Controller
     public function show($id)
     {
             $possession = Possession::find($id);
-            return view('possessions.show')->with('possession', $possession);
+            $panddingItem = $possession->owners;
+            $completeItem = owner::with('possessions')->whereDoesntHave('possessions', function($query) use ($id) {
+                $query->where('possessions.id', $id);
+            })->get();
+            
+            return view('possessions.show3',compact('panddingItem','possession','completeItem'));
     }
 
     /**
@@ -112,6 +118,19 @@ class PossessionsController extends Controller
 
         return redirect('/possessions');
     }
+
+
+    public function updateOwnerPossession(Request $request)
+    {
+        $input = $request->all();
+        $possession = $input['possession'];
+        $possession->id;
+    	return $input['possession'];
+    }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
