@@ -11,6 +11,7 @@
     <p>town : {!!$possession->town!!}</p>
     <p>id_owner : {!!$possession->id_owner!!}</p>
     <p>type : {!!$possession->type!!}</p>
+
 </div>
 <div>
     <table>
@@ -23,14 +24,14 @@
                 <td>    
                     <ol id="CurrentOwners" data-draggable="target">
                     @foreach($panddingItem as $item)
-                        <li data-draggable="item">{{ $item->lastname }} {{ $item->firstname }}</li>
+                        <li data-draggable="item" id="{{$item->id}}" data-owner="{{$item->id}}" data-possession="{{ $possession->id }}" data-isowner="true">{{ $item->lastname }} {{ $item->firstname }}</li>
                     @endforeach
                     </ol>
                 </td>
                 <td>
                     <ol id="NotOwners" data-draggable="target">
-                        @foreach($all as $item)
-                            <li data-draggable="item">{{ $item->lastname }} {{ $item->firstname }}</li>
+                        @foreach($completeItem as $item)
+                            <li data-draggable="item" data-owner="{{$item->id}}" data-possession="{{ $possession->id }}" data-isowner="false">{{ $item->lastname }} {{ $item->firstname }}</li>
                         @endforeach
                     </ol>
                 </td>

@@ -74,7 +74,7 @@ class PossessionsController extends Controller
                 $query->where('possessions.id', $id);
             })->get();
             
-            return view('possessions.show3',compact('panddingItem','possession','completeItem'));
+            return view('possessions.show',compact('panddingItem','possession','completeItem'));
     }
 
     /**
@@ -122,10 +122,19 @@ class PossessionsController extends Controller
 
     public function updateOwnerPossession(Request $request)
     {
-        $input = $request->all();
-        $possession = $input['possession'];
-        $possession->id;
-    	return $input['possession'];
+        $possessionId = $request->possession;
+        $owner = $request->owner;
+        $isowner = $request->isowner;
+        $possession = Possession::find($possessionId);
+        if ($isowner == "false") {
+            $possession->owners()->attach($owner);
+            return "true";
+        }
+        else {
+            $possession->owners()->detach($owner);
+            return "false";
+        }
+    	
     }
 
 

@@ -61,7 +61,7 @@ Route::group(['prefix' => 'possessions'], function() {
         ->middleware('can:edit possessions');
         
     Route::post('/update-items', array('as'=> 'update.items', 'uses' => 'PossessionsController@updateItems'));
-    Route::post('/update-items', array('as'=> 'updateOwnerPossession', 'uses' => 'PossessionsController@updateOwnerPossession'));
+    Route::post('/update-owner', array('as'=> 'updateOwnerPossession', 'uses' => 'PossessionsController@updateOwnerPossession'));
 
     Route::get('/createportfolio', 'PortfoliosController@create')
         ->name('portfolioCreate')

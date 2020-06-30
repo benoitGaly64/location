@@ -523,7 +523,37 @@
                 for(var len = selections.items.length, i = 0; i < len; i ++)
                 {
                     console.log("moved");
-                    selections.droptarget.appendChild(selections.items[i]);
+                    var possession;
+                    var owner;
+                    var isowner;
+                    var line;
+                    var drop;
+                    possession = selections.items[i].getAttribute('data-possession');
+                    owner = selections.items[i].getAttribute('data-owner');
+                    isowner = selections.items[i].getAttribute('data-isowner');
+                    line = selections.items[i];
+                    update = selections.droptarget.appendChild(line);
+                    console.log(isowner)
+                    $.ajax({ //line 28
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: '/possessions/update-owner',
+                        type: 'POST',
+                        data: { owner: owner, possession : possession, isowner : isowner},
+                        success: function(response)
+                        {
+                            line.setAttribute("data-isowner",response);
+                            update;                            
+                        },
+                        error: function()
+                        {
+                            alert("Impossible mettre a jour le proprietaire");
+                        }
+                        });
+                    
+                    
+                    
                 }
     
                 //prevent default to allow the action            
