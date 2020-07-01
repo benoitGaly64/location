@@ -10971,12 +10971,14 @@ a.text-dark:focus {
 
 
 .blue {
-  margin-top: 2px;
-  margin-left: 20px;
+  margin-top: 5px;
   text-align: center !important;
 }
 .red {
 
-  margin-top: 2px;
-  margin-left: 20px;
+  margin-top: 5px;
+
+}
+.tab-content {
+  margin-top: 5%;
 }
