@@ -522,18 +522,16 @@
                 //append the selected items to the end of the target container
                 for(var len = selections.items.length, i = 0; i < len; i ++)
                 {
-                    console.log("moved");
                     var possession;
                     var owner;
                     var isowner;
                     var line;
-                    var drop;
+                    var update;
                     possession = selections.items[i].getAttribute('data-possession');
                     owner = selections.items[i].getAttribute('data-owner');
                     isowner = selections.items[i].getAttribute('data-isowner');
                     line = selections.items[i];
                     update = selections.droptarget.appendChild(line);
-                    console.log(isowner)
                     $.ajax({ //line 28
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

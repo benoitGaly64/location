@@ -29,7 +29,7 @@ Route::post('image_crop/upload', 'ImageCropController@upload')->name('image_crop
 
 
 Route::group(['prefix' => 'profile'], function() {
-    Route::get('/', 'UsersProfileController@edit')
+    Route::get('/', 'UsersProfileController@show')
         ->name('ProfileShow')
         ->middleware('can:show profile');
     Route::match(['put', 'patch'], '/', 'UsersProfileController@update')
